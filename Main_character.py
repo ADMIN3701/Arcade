@@ -1,4 +1,3 @@
-import time
 import pygame
 class Charecter():
     star = pygame.image.load("images/star_sprite.png")
@@ -6,12 +5,10 @@ class Charecter():
     star_x = 0
     star_y = 0
 
-    rect = pygame.Surface((40, 40))
-    rect.fill((255, 255, 255))
+    rect = pygame.Rect(200, 200, 40, 40)
+    #rect.fill((255, 255, 255))
     #rect.set_colorkey((255, 255, 255))
     speed = 5
-    x = 200
-    y = 200
 
     def Character_walk(self):
         self.rect.blit(self.star, (self.star_x-160, self.star_y))
