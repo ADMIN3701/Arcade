@@ -7,45 +7,37 @@ from tkinter import *
 #
 # window = pygame.display.set_mode((800, 520))
 
-world_data = [[4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4],
-              [4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4],
-              [4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4],
-              [3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3],
-              [2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2],
-              [1, 1, 1, 1, 5, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
-              [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 5, 1, 1, 1, 1, 1, 1],
-              [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
-              [1, 1, 1, 1, 1, 1, 1, 5, 1, 1, 1, 1, 1, 1, 1, 1, 1, 5, 1, 1],
-              [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
+world_data = [[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+              [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+              [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+              [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+              [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+              [2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2],
+              [1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 0, 0, 0, 0, 2, 1],
+              [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 2, 2, 2, 1, 1],
               [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
               [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
-              [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 5, 1, 1, 1, 1, 1]
+              [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
+              [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
+              [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
               ]
 
 
 class MAP():
     def World_map(self, world_map, display):
-        Ground = pygame.image.load("images/wall.png")
-        sky = pygame.image.load("images/sky.png")
-        sky2 = pygame.image.load("images/sky2.png")
-        sky3 = pygame.image.load("images/sky3.png")
-        tree = pygame.image.load("images/tree.png")
-        tree.set_colorkey((255, 255, 255))
+        dirt = pygame.image.load("images/dirt.png")
+        grass = pygame.image.load("images/grass.png")
 
-        TILE_SIZE = 40
+        TILE_SIZE = 16
         tile_rects = []
         y = 0
         for row in world_map:
             x = 0
             for tile in row:
                 if tile == 1:
-                    display.blit(Ground, (x * TILE_SIZE, y * TILE_SIZE))
+                    display.blit(dirt, (x * TILE_SIZE, y * TILE_SIZE))
                 if tile == 2:
-                    display.blit(sky, (x * TILE_SIZE, y * TILE_SIZE))
-                if tile == 3:
-                    display.blit(sky2, (x * TILE_SIZE, y * TILE_SIZE))
-                if tile == 4:
-                    display.blit(sky3, (x * TILE_SIZE, y * TILE_SIZE))
+                    display.blit(grass, (x * TILE_SIZE, y * TILE_SIZE))
                 # if tile == 5:
                 #     Transforme_Image = pygame.transform.scale(tree, (TILE_SIZE, TILE_SIZE))
                 #     display.blit(Transforme_Image, (x * TILE_SIZE, y * TILE_SIZE))

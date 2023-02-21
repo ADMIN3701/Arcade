@@ -18,13 +18,20 @@ DOWN = True
 def keyboard():
     keys = pygame.key.get_pressed()
     if keys[pygame.K_a] and Rect.x >= 0 and LEFT:
-        Rect.x -= Character.speed
-    if keys[pygame.K_d] and Rect.x <= 800 - 40 and RIGHT:
-        Rect.x += Character.speed
+        # Rect.x -= Character.speed
+        Character.player_location[0] -= Character.speed
+    if keys[pygame.K_d] and Rect.x <= 320 - 12 and RIGHT:
+        # Rect.x += Character.speed
+        Character.player_location[0] += Character.speed
     if keys[pygame.K_w] and Rect.y >= 0 and UP:
-        Rect.y -= Character.speed
-    if keys[pygame.K_s] and Rect.y <= 520 - 40 and DOWN:
-        Rect.y += Character.speed
+        # Rect.y -= Character.speed
+        Character.player_location[1] -= Character.speed
+    if keys[pygame.K_s] and Rect.y <= 192 - 12 and DOWN:
+        # Rect.y += Character.speed
+        Character.player_location[1] += Character.speed
 
     if keys[pygame.K_ESCAPE]:
         pygame.QUIT()
+
+    Character.rect.x = Character.player_location[0]
+    Character.rect.y = Character.player_location[1]
